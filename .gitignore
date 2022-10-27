@@ -1,0 +1,10 @@
+out
+dist
+node_modules
+.vscode-test/
+.vscode/
+
+vsc-extension-quickstart.md
+
+package-lock.json
+ci_pipeline
