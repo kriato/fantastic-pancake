@@ -35,6 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
               vscode.window.showErrorMessage(
                 "Language not supported: " + language
               );
+              return;
             }
           } else {
           }
