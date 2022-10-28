@@ -3,6 +3,7 @@
   "displayName": "fantastic-pancake",
   "description": "Pancakes are good enough without maple syrup",
   "version": "0.0.1",
+  "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.72.0"
   },
