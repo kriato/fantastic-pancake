@@ -57,18 +57,18 @@ export function activate(context: vscode.ExtensionContext) {
             let nextLineContent = activeEditor.document.lineAt(
               cursorRow + i
             ).text;
-            let currentLineCursor = 
+            let currentLineCursor =
               lineContent.length - lineContent.trimStart().length;
             // let currentLineOffset = " ".repeat(currentLineCursor);
             let nextLineCursor =
               nextLineContent.length - nextLineContent.trimStart().length;
             let nextLineOffset = " ".repeat(nextLineCursor);
-            
+
             var splitted = lineContent.split(" ");
             let word = "";
             let currLength = 0;
             let beginCol = 0;
-            
+
             for (let i = 0; i < splitted.length; i++) {
               currLength += splitted[i].length + 1;
               if (currLength > cursorCol) {
@@ -77,9 +77,11 @@ export function activate(context: vscode.ExtensionContext) {
                 break;
               }
             }
-            let initialOffset = '';
-            if ((currentLineCursor - nextLineCursor) > 0) {
-              initialOffset = ' '.repeat(Math.abs(currentLineCursor - nextLineCursor));
+            let initialOffset = "";
+            if (currentLineCursor - nextLineCursor > 0) {
+              initialOffset = " ".repeat(
+                Math.abs(currentLineCursor - nextLineCursor)
+              );
             }
             if (DEBUG) {
               console.log("Split is is: " + splitted);
@@ -102,11 +104,10 @@ export function activate(context: vscode.ExtensionContext) {
                       desiredCommandEnd
                   );
                 } else {
-                  // console.log( initialOffset.length);
                   console.log(nextLineOffset.length);
                   editBuilder.insert(
                     new vscode.Position(cursorRow + 1, nextLineCursor),
-                    initialOffset+
+                    initialOffset +
                       desiredCommandStart +
                       word +
                       desiredCommandEnd +
